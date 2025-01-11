@@ -25,9 +25,20 @@ Now adding a target spec json file `x86_64-ham_os.json` to define the target sys
 
 Now we do some unsafe operations on the VGA buffer to print a string to the console. I needed to use mobaXterm in order for a QEMU window to launch because VSCode does not support this.
 
+TIL:
+
+- You can manipulate raw pointers in an `unsafe` scope. This subvert's Rust's built-in memory safety mechanics.
+
 ## Chapter 3: VGA text but safer
 
+VGA hardware has a text buffer that we can write to. Do all x86 systems have VGA? No its an outdated standard, but most x86 motherboards come with VGA ports to be more backward compatible. VGA text buffer is 25 lines x 80 chars. Memory mapped I/O (MMIO) is basically when an IO device's hardware registers and memory are mapped to main memory addresses, making I/O possible directly from the CPU. 
 
+TIL:
+
+- The borrow checker has two rules to enforce memory safety: data has one owner, data may have multiple readers or one writer. 
+- "Do not communicate by sharing memory; instead, share memory by communicating."
+- _Crates_ are rust packages.
+- It's important to use the `volatile` keyword when writing directly to MMIO so future compiler versions don't optimize the capability away. Volatile is usually used for async reads/writes.
 
 ## Sources
 
