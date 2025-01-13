@@ -42,7 +42,13 @@ TIL:
 
 ## Chapter 4: Testing
 
-We need to create a custom test framework because the default test framework depends on the standard library of rust which we are not using. 
+We need to create a custom test framework because the default test framework depends on the standard library of rust which we are not using. QEMU has a port address you can write to that will exit out of the OS instance. I implemented this call in the custom test framework once all the tests are done.
+
+TIL:
+
+- There's a serial port crate, and you can write to serial port objects unsafely. 
+- There's a flag you can pass the bootimage crate that allows QEMU to pipe serial writes to stdout.
+- Rust lets you set a variable equal to an initialization block of code (just dont put a semicolon on the return value). Thought that was kinda cool. Can't do that in C++.
 
 ## Sources
 
