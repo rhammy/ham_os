@@ -40,6 +40,10 @@ TIL:
 - _Crates_ are rust packages.
 - It's important to use the `volatile` keyword when writing directly to MMIO so future compiler versions don't optimize the capability away. Volatile is usually used for async reads/writes.
 
+## Chapter 4: Testing
+
+We need to create a custom test framework because the default test framework depends on the standard library of rust which we are not using. 
+
 ## Sources
 
 https://os.phil-opp.com/freestanding-rust-binary/
